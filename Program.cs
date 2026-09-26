@@ -24,6 +24,10 @@ builder.Services.AddScoped<
     IFornecedorRepository,
     FornecedorRepository>();
 
+builder.Services.AddScoped<
+    IDepartamentoRepository,
+    DepartamentoRepository>();
+
 // Registra a Service
 builder.Services.AddScoped<
     IFornecedorService,
@@ -40,6 +44,10 @@ builder.Services.AddScoped<
 builder.Services.AddScoped<
     IVendaService,
     VendaService>();
+
+builder.Services.AddScoped<
+    IDepartamentoService,
+    DepartamentoService>();
 
 var app = builder.Build();
 

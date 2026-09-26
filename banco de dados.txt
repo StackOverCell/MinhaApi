@@ -28,8 +28,25 @@ CREATE TABLE IF NOT EXISTS vendas (
     FOREIGN KEY (id_produto) REFERENCES produtos(id)
 );
 
+CREATE TABLE IF NOT EXISTS Fornecedor (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    cnpj VARCHAR(18) NOT NULL UNIQUE,
+    ativo TINYINT(1) NOT NULL DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS departamento (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_fornecedor INT NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    descricao VARCHAR(100) NOT NULL,
+    ativo TINYINT(1) NOT NULL DEFAULT 1,
+    FOREIGN KEY (id_fornecedor) REFERENCES fornecedor(id)
+);
+
 SELECT * FROM cliente;
 SELECT * FROM produtos;
 SELECT * FROM vendas;
-
-DESCRIBE vendas;
+SELECT * FROM fornecedor;
+select * from departamento;
